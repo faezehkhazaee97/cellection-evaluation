@@ -17,5 +17,6 @@ umap-learn==0.5.9.post2
 # Pancreas batch-mixing metrics and the Excel exports.
 scib==1.1.7
 openpyxl==3.1.5
-# The cellection package, at the commit these experiments used.
-cellection_CG_dev @ git+https://github.com/faezehkhazaee97/cellection_CG_dev.git@16d2c14f042b77fcbddb1284b06380a15b87cf40
+# The cellection package at fork commit 16d2c14, vendored unchanged. Set
+# SETUPTOOLS_SCM_PRETEND_VERSION_FOR_CELLECTION_CG_DEV before installing (see README).
+./third_party/cellection

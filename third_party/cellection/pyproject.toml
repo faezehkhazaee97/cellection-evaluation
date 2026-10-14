@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cellection_CG_dev"
+dynamic = ["version"]
+description = "Predicting emergent phenotypes from single cell populations using CELLECTION"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Hongru Hu", email = "hrhu.compbio@gmail.com"}
+]
+maintainers = [
+    {name = "Hongru Hu", email = "hrhu.compbio@gmail.com"}
+]
+keywords = ["deep-learning", "bioinformatics", "machine-learning", "multiple-instance-learning", "pointnet"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "torch==2.4.1",
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "scikit-learn>=1.0.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "pandas>=1.3.0",
+    "tqdm>=4.60.0",
+    "scanpy==1.10.3",
+    "anndata==0.10.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+]
+full = [
+    "scanpy==1.10.3",
+    "anndata==0.10.9",
+    "scvi-tools>=0.20.0",
+]
+
+[project.urls]
+
+[tool.setuptools_scm]
+write_to = "src/cellection/_version.py"
+
+[tool.setuptools.packages.find]
+where = ["src"] 

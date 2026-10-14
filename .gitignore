@@ -40,6 +40,10 @@ slurm*.out
 *.err
 logs/
 
+# Build files from installing third_party/cellection
+third_party/cellection/build/
+*.egg-info/
+
 # R and OS files
 .RData
 .Rhistory

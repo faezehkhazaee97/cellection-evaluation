@@ -41,7 +41,16 @@ export RESULTS_DIR=/abs/path/to/results    # outputs
 
 Unset, `DATA_DIR` and `RESULTS_DIR` fall back to `data` and `results` in the current directory.
 
-`pip install -r requirements.txt` installs the Python dependencies at the versions the experiments ran with; `environment.yml` adds R for `mmil_baseline`. The results in the paper were produced with the `cellection` package at commit `16d2c14` of https://github.com/faezehkhazaee97/cellection_CG_dev, and that is the commit `requirements.txt` installs.
+Install the Python dependencies from the repository root, at the versions the experiments ran with:
+
+```bash
+export SETUPTOOLS_SCM_PRETEND_VERSION_FOR_CELLECTION_CG_DEV=0.1.dev14+g16d2c14f0
+pip install -r requirements.txt
+```
+
+The `export` gives the vendored `cellection` package its version number, which setuptools-scm cannot read from git inside this repository. `environment.yml` adds R for `mmil_baseline` and installs `requirements.txt` through pip, so set the same `export` before creating it.
+
+The results in the paper were produced with the `cellection` package at fork commit `16d2c14`, included unchanged in `third_party/cellection/` under its original MIT license. The clone instruction in `third_party/cellection/README.md` points to a private repository and can be ignored; install from `third_party/cellection/` instead.
 
 Most experiments import the `cellection` package. Training scripts use a GPU if there is one and run on CPU otherwise, except `compute_scaling`, which measures GPU memory and needs CUDA. On a shared cluster, submit the training scripts as batch jobs.
 
@@ -85,8 +94,8 @@ Built from the sources above by scripts in this repository: `$RESULTS_DIR/R1-q1/
 - Input data, apart from the fold files (see Data).
 - Results, figures and model checkpoints.
 - The supplementary tables. `benchmark_baselines/scripts/generate_comprehensive_benchmark_tables.py` writes them.
-- External code: the `cellection` package (see Setup) and CloudPred (https://github.com/bryanhe/CloudPred). ProtoCell4P's original implementation is at https://github.com/gzxiong/ProtoCell4P; the `ProtoCell` model class the benchmark uses is defined in each `benchmark_baselines/protocell4p/*.py`.
+- External code: CloudPred (https://github.com/bryanhe/CloudPred). ProtoCell4P's original implementation is at https://github.com/gzxiong/ProtoCell4P; the `ProtoCell` model class the benchmark uses is defined in each `benchmark_baselines/protocell4p/*.py`.
 
 ## License
 
-MIT; see `LICENSE`.
+MIT; see `LICENSE`. `third_party/cellection/` keeps its own MIT license, in `third_party/cellection/LICENSE`.
