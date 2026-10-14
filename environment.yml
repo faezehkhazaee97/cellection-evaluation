@@ -1,0 +1,15 @@
+name: cellection-experiments
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  # R for mmil_baseline/
+  - r-base=4.4
+  - r-glmnet
+  - r-proc
+  - r-caret
+  - r-dplyr
+  - r-matrix
+  - pip:
+      - -r requirements.txt

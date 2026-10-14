@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Inputs and outputs (DATA_DIR / RESULTS_DIR defaults and run-folder outputs)
+data/
+results/
+Results/
+*.h5ad
+*.h5
+*.loom
+*.mtx
+*.csv
+!folds/**/*.csv
+*.tsv
+*.xlsx
+*.parquet
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.pdf
+*.png
+*.svg
+
+# Model checkpoints written to the working directory
+*.pt
+*.pth
+*.ckpt
+checkpoints*/
+*_SEED*/
+seed_*_n*/
+
+# Job logs
+slurm*.out
+*.out
+*.err
+logs/
+
+# R and OS files
+.RData
+.Rhistory
+.Rproj.user/
+.DS_Store
